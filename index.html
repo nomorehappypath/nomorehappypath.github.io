@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoMoreHappyPath — agents that prove it</title>
+<meta name="description" content="Runs Codex CLI and Claude Code as a governed delivery team. One agent builds, an agent from the other vendor reviews by running it, and nothing is done until the evidence exists. Free and open source.">
+<link rel="canonical" href="https://nomorehappypath.com/">
+<link rel="icon" type="image/svg+xml" href="assets/nmhp-favicon-plate-vector-v3.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/nmhp-favicon-plate-32-v3.png">
+<link rel="apple-touch-icon" href="assets/nmhp-app-icon-plate-256-v3.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NoMoreHappyPath — agents that prove it">
+<meta property="og:description" content="AI agents write the code. A competing vendor's agent has to fail it. Nothing is done until the evidence exists.">
+<meta property="og:url" content="https://nomorehappypath.com/">
+<meta property="og:image" content="https://nomorehappypath.com/assets/nmhp-template-github-social-preview-1280x640-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1728;
+    --ink-2: #16233a;
+    --ink-3: #213352;
+    --paper: #f5f1e8;
+    --white: #ffffff;
+    --amber: #ffb020;
+    --red: #ff6b5e;
+    --green: #5fd38d;
+    --max: 1040px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--white);
+    font: 400 17px/1.6 "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+  a { color: var(--amber); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  header.top { padding: 22px 0; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  header.top img { height: 30px; width: auto; display: block; }
+  header.top a.gh { color: var(--paper); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
+  header.top a.gh:hover { color: var(--amber); }
+
+  .hero { padding: 64px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+  h1, h2 { font-family: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; font-weight: 600; line-height: 1.12; margin: 0; }
+  h1 { font-size: clamp(36px, 5.4vw, 58px); letter-spacing: -0.01em; }
+  h1 em { font-style: normal; color: var(--amber); }
+  .lede { font-size: 19px; margin: 22px 0 32px; max-width: 34em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 4px; font-weight: 600; text-decoration: none; font-size: 16px; }
+  .btn.primary { background: var(--amber); color: var(--ink); }
+  .btn.primary:hover { background: #ffc24d; }
+  .btn.ghost { border: 1.5px solid var(--paper); color: var(--paper); }
+  .btn.ghost:hover { border-color: var(--amber); color: var(--amber); }
+  .fine { font-size: 14px; margin-top: 16px; }
+
+  /* the receipt */
+  .receipt {
+    background: var(--paper); color: var(--ink);
+    font: 400 14px/1.55 "IBM Plex Mono", ui-monospace, monospace;
+    padding: 22px 22px 34px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), 92% 100%, 84% calc(100% - 14px), 76% 100%, 68% calc(100% - 14px), 60% 100%, 52% calc(100% - 14px), 44% 100%, 36% calc(100% - 14px), 28% 100%, 20% calc(100% - 14px), 12% 100%, 4% calc(100% - 14px), 0 100%);
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  }
+  .receipt .row { display: flex; justify-content: space-between; gap: 12px; }
+  .receipt hr { border: 0; border-top: 1.5px dashed var(--ink); margin: 12px 0; opacity: .5; }
+  .receipt .claim { font-weight: 500; }
+  .receipt .fail { color: #b3261e; font-weight: 500; }
+  .receipt .ok { color: #1b6e3c; font-weight: 500; }
+  .receipt .label { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+
+  section { padding: 72px 0; }
+  section.alt { background: var(--ink-2); }
+  h2 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 18px; }
+  .kicker { font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
+  .narrow { max-width: 44em; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .card { background: var(--ink-3); padding: 26px; border-radius: 6px; border-top: 3px solid var(--amber); }
+  .card h3 { margin: 0 0 10px; font-size: 20px; font-weight: 600; }
+  .card p { margin: 0; }
+
+  table.needs { width: 100%; border-collapse: collapse; margin-top: 28px; font-size: 16px; }
+  table.needs th, table.needs td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--ink-3); vertical-align: top; }
+  table.needs th { font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+  table.needs td:first-child { font-weight: 600; }
+
+  pre {
+    background: #070d18; color: var(--paper); padding: 20px 22px; border-radius: 6px;
+    font: 400 15px/1.6 "IBM Plex Mono", monospace; overflow-x: auto; margin: 24px 0 18px;
+  }
+  pre .c { color: var(--amber); }
+
+  footer { padding: 40px 0 56px; font-size: 15px; border-top: 1px solid var(--ink-3); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
+  footer a { color: var(--paper); }
+
+  @media (max-width: 820px) {
+    .hero { padding: 36px 0 56px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .three { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .wrap { padding: 0 16px; }
+    table.needs th:nth-child(3), table.needs td:nth-child(3) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="assets/nmhp-lockup-horizontal-receipt-vector-v3.svg" alt="NoMoreHappyPath">
+    <a class="gh" href="https://github.com/nomorehappypath/nomorehappypath">GitHub →</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>AI agents write the code.<br><em>Nothing is done until they prove it.</em></h1>
+        <p class="lede">Every AI coding agent will tell you “done.” NoMoreHappyPath doesn’t believe it. One agent builds, an agent from the <strong>other</strong> AI vendor reviews by actually running the work, and a task only turns green when the evidence is attached.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get it on GitHub</a>
+          <a class="btn ghost" href="#install">How to install</a>
+        </div>
+        <p class="fine">Free and open source (Apache 2.0). Runs on your own machine with your own AI accounts.</p>
+      </div>
+
+      <div class="receipt" role="img" aria-label="Example review receipt: the builder claimed done, the independent reviewer ran it and failed the work.">
+        <div class="row label"><span>Review receipt</span><span>Example</span></div>
+        <hr>
+        <div class="row"><span>Builder</span><span>Codex</span></div>
+        <div class="row"><span>Reviewer</span><span>Claude</span></div>
+        <hr>
+        <div class="claim">Builder says: “Done. All tests pass.”</div>
+        <hr>
+        <div class="row"><span>Reviewer ran its own tests</span><span class="ok">PASS</span></div>
+        <div class="row"><span>Failure path exercised</span><span class="fail">FAIL</span></div>
+        <div class="row"><span>Feature visible on screen</span><span class="fail">FAIL</span></div>
+        <hr>
+        <div class="row"><strong>Verdict</strong><strong class="fail">NOT DONE</strong></div>
+        <div style="margin-top:8px">Sent back with causes and evidence.</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="kicker">The problem</div>
+      <h2>The happy path is the demo. The rest ships broken.</h2>
+      <div class="narrow">
+        <p>“Happy path” is the case where everything goes right. It’s what AI agents test, and it’s what they show you. An agent that wrote the code and then grades its own tests will pass itself almost every time.</p>
+        <p>So you end up being QA for your own AI, rerunning everything before you trust it. That wipes out most of what the AI saved you, and solo builders and small teams don’t have a second engineer to do it for them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="kicker">How it works</div>
+      <h2>Three rules the agents can’t talk their way around</h2>
+      <div class="three">
+        <div class="card">
+          <h3>Cross-vendor review</h3>
+          <p>The agent that writes the code never judges it. The reviewer comes from the competing AI company, runs the code itself, and can fail it. It has no reason to agree.</p>
+        </div>
+        <div class="card">
+          <h3>Evidence-gated status</h3>
+          <p>A task can’t become “done” because an agent said so. Every step needs proof attached: tests run, failure cases tried, the real screen checked.</p>
+        </div>
+        <div class="card">
+          <h3>You speak product, not code</h3>
+          <p>You say what you want in plain language. You get back “ready for your test” with a checklist you can follow. Accepting the work stays your decision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="kicker">Before you install</div>
+      <h2>What you need, honestly</h2>
+      <p class="narrow">The platform is free. The AI agents it runs are not: they use your own accounts, and a serious build costs real money on them.</p>
+      <table class="needs">
+        <thead><tr><th>You need</th><th>Why</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>macOS 13+ or Linux</td><td>Tested on Ubuntu 24.04. Python 3.9+. Windows isn’t supported.</td><td>Free</td></tr>
+          <tr><td>Codex CLI</td><td>The agent that builds.</td><td>Your OpenAI plan</td></tr>
+          <tr><td>Claude Code</td><td>The reviewer and the process watcher.</td><td>Your Anthropic plan</td></tr>
+          <tr><td>OpenAI API key</td><td>Lets you ask questions about your project.</td><td>Pay per use</td></tr>
+        </tbody>
+      </table>
+      <p class="fine">You can start with one agent, but the cross-vendor review needs both.</p>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <div class="kicker">Install</div>
+      <h2>Two commands</h2>
+      <pre><span class="c">git clone</span> https://github.com/nomorehappypath/nomorehappypath.git
+<span class="c">cd</span> nomorehappypath &amp;&amp; bash install.sh</pre>
+      <p class="narrow">The installer checks everything above and tells you plainly what’s missing. Then open Mission Control, point it at a project folder, and give your first direction. Everything runs on your machine, and your code never goes to our servers.</p>
+      <div class="cta" style="margin-top:28px">
+        <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Read the full guide on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap narrow">
+      <div class="kicker">Built the same way</div>
+      <h2>It had to pass its own reviews</h2>
+      <p>NoMoreHappyPath is built under its own rules: every change goes through a reviewer from the other vendor, and plenty of them failed before they shipped. It never claims your code is bug-free. It shows you the evidence for what was checked.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 KpiMinds LLC · Apache License 2.0</span>
+    <span><a href="https://github.com/nomorehappypath/nomorehappypath">GitHub</a> · <a href="https://github.com/nomorehappypath/nomorehappypath/releases">Releases</a> · <a href="mailto:license@kpiminds.com">license@kpiminds.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
