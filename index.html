@@ -231,6 +231,38 @@
     </div>
   </section>
 
+  <section class="alt" id="why-time">
+    <div class="wrap">
+      <div class="kicker">Why it takes longer</div>
+      <h2>A small app in 48 minutes, not 5. On purpose.</h2>
+      <div class="narrow"><p>Any AI can produce a demo in five minutes. NoMoreHappyPath treats every project as a product to release to real customers, not an alpha or a beta. That standard is where the time goes.</p></div>
+      <div class="two">
+        <div class="card" style="border-top-color:var(--red)">
+          <h3>5 minutes: a demo</h3>
+          <ul>
+            <li>Built straight from the prompt</li>
+            <li>Tested only where everything goes right</li>
+            <li>The same AI says it works</li>
+            <li>You find the problems after launch</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top-color:var(--green)">
+          <h3>48 minutes: a release</h3>
+          <ul>
+            <li>Requirements written down and agreed before any code</li>
+            <li>Built in parts, each part reviewed by a different AI</li>
+            <li>Failure cases tried: a city that doesn’t exist, a service that is down</li>
+            <li>Security and quality basics checked without being asked</li>
+            <li>A failed review sent back, fixed, and checked again</li>
+            <li>A final review that opens the whole app in a real browser</li>
+          </ul>
+        </div>
+      </div>
+      <p class="narrow" style="margin-top:28px">In the weather build on this page, one of the four reviews failed. A wrong “Updated” time. A five-minute demo would have shipped it. Here, it was caught, fixed and checked again before the app reached the owner.</p>
+      <p class="narrow"><strong>Speed is cheap. Trust takes time.</strong> If you only need a demo, any AI will do. This is for when you intend to put the software in front of customers.</p>
+    </div>
+  </section>
+
   <section id="built">
     <div class="wrap">
       <div class="kicker">What it built</div>
@@ -317,6 +349,7 @@
       <details><summary>Isn’t AI reviewing AI just theatre?</summary><p>The reviewer isn’t reading a diff and nodding. It writes its own tests, the harness runs them and keeps the output, and the verdict has to match that output. A pass with no recorded execution behind it is refused. It also has no reason to agree: it comes from a different company than the builder.</p></details>
       <details><summary>Is this a code-review tool?</summary><p>No. It’s the whole build harness: you give it an idea and agents plan, build, test and check it. The cross-vendor review is how it earns trust, not the product itself.</p></details>
       <details><summary>What does it cost to run?</summary><p>The software is free. The agents run on your own subscriptions. A serious build uses real usage. Using a top model for the plan and lighter models for building and review keeps that down.</p></details>
+      <details><summary>Why does even a small app take so long?</summary><p>Because the harness builds for release, not for a demo. It agrees the requirements first, has a different AI review each part, tries the failure cases, checks security and quality basics, and finishes with a review that uses the whole app in a real browser. A weather app took 48 minutes and four reviews, and one of them failed. A demo takes five minutes and skips all of that.</p></details>
       <details><summary>Does my code leave my computer?</summary><p>The harness runs on your machine and doesn’t send your code to us. Your agents talk to their own providers, the same as when you use those tools directly.</p></details>
       <details><summary>Is it really open source?</summary><p>Yes. Apache 2.0: use it, change it, use it commercially.</p></details>
       <details><summary>Does it guarantee bug-free software?</summary><p>No, and nothing does. It guarantees that what ships was checked by a different AI, with evidence you can read.</p></details>
