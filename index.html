@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoMoreHappyPath — AI that builds real software, and proves it</title>
-<meta name="description" content="An open-source harness that builds commercial software with AI. You give it the idea. Agents from different vendors plan, build and test it, and check each other's work before anything is accepted.">
+<title>NoMoreHappyPath — build commercial software with AI agents</title>
+<meta name="description" content="An open-source delivery system for building commercial software with AI agents: from a plain-English idea to a release-ready product, with the governance built in.">
 <link rel="canonical" href="https://nomorehappypath.com/">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NoMoreHappyPath — AI that builds real software, and proves it">
-<meta property="og:description" content="You give it the idea. AI agents plan, build and test it, and check each other's work before anything is accepted. Free and open source.">
+<meta property="og:title" content="NoMoreHappyPath — build commercial software with AI agents">
+<meta property="og:description" content="From a plain-English idea to a release-ready product. A team of AI agents plans, builds, tests and reviews it, with the governance built in. Free and open source.">
 <meta property="og:url" content="https://nomorehappypath.com/">
 <meta property="og:image" content="https://nomorehappypath.com/assets/og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -48,7 +48,7 @@
   header.top nav a.gh:hover { border-color: var(--amber); }
 
   h1, h2, h3 { font-family: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif; font-weight: 600; line-height: 1.12; margin: 0; }
-  h1 { font-size: clamp(36px, 5.6vw, 62px); letter-spacing: -0.01em; }
+  h1 { font-size: clamp(34px, 4.4vw, 54px); letter-spacing: -0.01em; text-wrap: balance; }
   h1 em { font-style: normal; color: var(--amber); }
   h2 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 18px; }
   .kicker { font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px; }
@@ -147,6 +147,7 @@
     <a class="brand" href="/"><img src="assets/logo-256.png" alt="" width="40" height="40"><span>NoMoreHappyPath</span></a>
     <nav>
       <a href="#how">How it works</a>
+      <a href="#inside">What’s inside</a>
       <a href="#built">What it built</a>
       <a href="#proof">Proof</a>
       <a href="#install">Install</a>
@@ -159,8 +160,8 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>Give it the idea.<br><em>Get software you can sell.</em></h1>
-        <p class="lede">NoMoreHappyPath is an open-source harness that builds commercial software with AI. Agents plan it, build it and test it, and agents from <strong>different AI companies</strong> check each other’s work. Nothing is accepted until the evidence exists.</p>
+        <h1>Build commercial software with AI agents.<br><em>Governance built in.</em></h1>
+        <p class="lede">NoMoreHappyPath is an open-source delivery system for AI-built software. You describe what you want in plain English. A team of AI agents plans it, builds it, tests it and reviews it, inside a governed project board. Nothing moves forward without evidence, and “done” stays your word.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get it on GitHub</a>
           <a class="btn ghost" href="#install">How to install</a>
@@ -194,8 +195,27 @@
       <div class="steps">
         <div class="step"><h3>You say what you want</h3><p>In plain language. No code, no technical decisions.</p></div>
         <div class="step"><h3>It writes the contract</h3><p>Agents acting as product and engineering managers write a full specification. You accept it, or change it.</p></div>
-        <div class="step"><h3>It builds and checks</h3><p>One AI builds. An AI from another company runs the work, tries to break it, and can fail it.</p></div>
+        <div class="step"><h3>A team builds and checks</h3><p>A builder builds. An independent reviewer from another company runs the work and can fail it. A CTO watches the whole process.</p></div>
         <div class="step"><h3>You test and accept</h3><p>You get “ready for your test” with a checklist you can follow. “Done” stays your word.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="inside">
+    <div class="wrap">
+      <div class="kicker">What’s inside</div>
+      <h2>A complete delivery system, not a prompt</h2>
+      <div class="narrow"><p>Everything needed to take an idea to accepted, release-ready software runs on your own machine.</p></div>
+      <div class="three">
+        <div class="card"><h3>A team of agents</h3><p>A builder, an independent reviewer from a different AI company, and a CTO that watches the process and tells you the one thing that needs you. Claude, Codex or Gemini can take any role.</p></div>
+        <div class="card"><h3>A contract before any code</h3><p>Agents write the full specification first. Nothing is built until you press Go ahead, or change it.</p></div>
+        <div class="card"><h3>A board agents can’t edit</h3><p>Tasks, reviews and release gates are kept by ordinary software. A task advances only with evidence: tests run, failure paths tried, the whole app walked in a real browser.</p></div>
+        <div class="card"><h3>Security by default</h3><p>Secrets, input handling, logins, error handling and dependencies are checked without being asked. An optional Enhanced security mode adds a threat model and a controls register.</p></div>
+        <div class="card"><h3>A sandbox around every agent</h3><p>The operating system confines every agent: it can write only to the project and the harness’s own folders, and Claude agents are kept away from your own login files.</p></div>
+        <div class="card"><h3>Self-healing</h3><p>Stuck agents restart themselves, sign-in problems are flagged, and agents keep their memory across pause and resume.</p></div>
+        <div class="card"><h3>Mission Control</h3><p>A local web app to watch every project, preview the app, ask questions about your project, and accept the result.</p></div>
+        <div class="card"><h3>Runs where you work</h3><p>macOS, and headless Linux servers. The harness runs on your machine and your agents use your own accounts. There is no server of ours in the loop.</p></div>
+        <div class="card"><h3>Open source</h3><p>Apache 2.0. Every line is readable, free to use, and free to build on, commercially too.</p></div>
       </div>
     </div>
   </section>
@@ -347,7 +367,7 @@
       <div class="kicker">Questions</div>
       <h2>What people ask first</h2>
       <details><summary>Isn’t AI reviewing AI just theatre?</summary><p>The reviewer isn’t reading a diff and nodding. It writes its own tests, the harness runs them and keeps the output, and the verdict has to match that output. A pass with no recorded execution behind it is refused. It also has no reason to agree: it comes from a different company than the builder.</p></details>
-      <details><summary>Is this a code-review tool?</summary><p>No. It’s the whole build harness: you give it an idea and agents plan, build, test and check it. The cross-vendor review is how it earns trust, not the product itself.</p></details>
+      <details><summary>Is this a code-review tool?</summary><p>No. It’s a complete delivery system: you give it an idea and a team of agents plans, builds, tests and reviews it inside a governed board, with a local control room to run it. The independent review is one of the safeguards that makes the result trustworthy, not the product itself.</p></details>
       <details><summary>What does it cost to run?</summary><p>The software is free. The agents run on your own subscriptions. A serious build uses real usage. Using a top model for the plan and lighter models for building and review keeps that down.</p></details>
       <details><summary>Why does even a small app take so long?</summary><p>Because the harness builds for release, not for a demo. It agrees the requirements first, has a different AI review each part, tries the failure cases, checks security and quality basics, and finishes with a review that uses the whole app in a real browser. A weather app took 48 minutes and four reviews, and one of them failed. A demo takes five minutes and skips all of that.</p></details>
       <details><summary>Does my code leave my computer?</summary><p>The harness runs on your machine and doesn’t send your code to us. Your agents talk to their own providers, the same as when you use those tools directly.</p></details>
