@@ -166,7 +166,7 @@
           <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get it on GitHub</a>
           <a class="btn ghost" href="#install">How to install</a>
         </div>
-        <p class="fine">Free and open source (Apache 2.0) · <span id="ver">v0.8.0</span> · macOS and Linux · runs on your machine, with your own AI accounts</p>
+        <p class="fine">Free and open source (Apache 2.0) · macOS and Linux · runs on your machine, with your own AI accounts</p>
       </div>
       <div>
         <video class="video" controls preload="metadata" poster="assets/demo-poster.png" playsinline>
@@ -392,13 +392,5 @@
   </div>
 </footer>
 
-<script>
-  try {
-    fetch("https://api.github.com/repos/nomorehappypath/nomorehappypath/releases/latest")
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { if (d && d.tag_name) document.getElementById("ver").textContent = d.tag_name; })
-      .catch(function () {});
-  } catch (e) {}
-</script>
 </body>
 </html>
