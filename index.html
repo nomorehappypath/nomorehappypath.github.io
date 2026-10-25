@@ -264,7 +264,7 @@
       <div class="narrow"><p>Everything needed to take an idea to accepted, release-ready software runs on your own machine, and the safeguards are already in place. Most AI-built apps ship without the things that quietly sink real products, because nobody thought to ask.</p></div>
       <div class="flow" style="margin-bottom:8px">
         <div class="flow-d">
-        <a class="zoom" href="assets/built-in-checks.png" target="_blank" rel="noopener"><img src="assets/built-in-checks.png" width="1860" height="1380" loading="lazy" alt="Eighteen safeguards built into every task: questions first, contract before code, locked checks, real results, a passing flag is not proof, the reviewer’s own tests, every finding fixed, a CTO that watches, security built in, untested is never a pass, no hidden questions, you decide when it is done, the reviewer runs the real product, scenarios proven, agents cannot edit the board, evidence tied to the code, sandboxed agents, and self-healing."></a>
+        <a class="zoom" href="assets/built-in-checks.png" target="_blank" rel="noopener"><img src="assets/built-in-checks.png" width="1860" height="1580" loading="lazy" alt="Twenty-one safeguards built into every task: questions first, contract before code, locked checks, real results, a passing flag is not proof, the reviewer’s own tests, every finding fixed, a CTO that watches, security built in, untested is never a pass, no hidden questions, you decide when it is done, the reviewer runs the real product, scenarios proven, agents cannot edit the board, evidence tied to the code, sandboxed agents, self-healing, a check must fail first, tests locked during repair, and proof for every regression."></a>
         </div>
         <div class="flow-m">
           <ul class="flow-list tiles-m">
@@ -286,6 +286,9 @@
           <li style="border-color:#9a8cff"><b>Evidence tied to the code</b><span>a result for different code than was tested is refused</span></li>
           <li style="border-color:#2fd4a0"><b>Sandboxed agents</b><span>the operating system limits where every agent can write</span></li>
           <li style="border-color:#2fd4a0"><b>Self-healing</b><span>stalled agents are restarted, and a run survives pauses and restarts</span></li>
+          <li style="border-color:#9a8cff"><b>A check must fail first</b><span>a check counts as proof only if it is seen failing on the broken version</span></li>
+          <li style="border-color:#2fd4a0"><b>Tests locked during repair</b><span>the builder can&#x27;t rewrite the tests to make them pass</span></li>
+          <li style="border-color:#ff7a52"><b>Proof for every regression</b><span>a &quot;broken by the repair&quot; finding must show a check that passed before and fails now</span></li>
           </ul>
         </div>
       </div>
