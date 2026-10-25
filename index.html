@@ -146,6 +146,10 @@
   .flow-list .board { border-color: #9a8cff; } .flow-list .board small { color: #9a8cff; }
   .flow-list .reviewer { border-color: #ff7a52; } .flow-list .reviewer small { color: #ff7a52; }
   .flow-note { margin-top: 14px; font-size: 15px; }
+  .zoomin { margin-top: 64px; }
+  .zoomin h3 { font-size: 30px; margin-bottom: 10px; }
+  .zoomin .lead { max-width: 46em; margin: 0 0 22px; }
+  .proof-m li b::before { content: none; }
   .tiles-m li b::before { content: none; }
   @media (max-width: 820px) { .flow-d { display: none; } .flow-m { display: block; } }
 
@@ -202,13 +206,32 @@
     </div>
   </div>
 
-  <section class="alt">
+  <section>
     <div class="wrap">
       <div class="kicker">The problem</div>
       <h2>AI is great at the happy path. Customers don’t live there.</h2>
       <div class="narrow">
         <p>AI will build you an app that works in the demo. Then you find out what it didn’t test: the failed login, the empty screen, the error message that shows a stack trace. An AI that grades its own work passes itself almost every time, so you become the QA department for your own AI.</p>
         <p>NoMoreHappyPath is built so that doesn’t happen: the work is checked by someone with no reason to agree.</p>
+      </div>
+    </div>
+  </section>
+  <section id="why" class="alt">
+    <div class="wrap">
+      <div class="kicker">Why it's different</div>
+      <h2>Two AI companies, tests before code, reviews that end</h2>
+      <div class="flow">
+        <div class="flow-d">
+          <a class="zoom" href="assets/why-nmhp.png" target="_blank" rel="noopener"><img src="assets/why-nmhp.png" width="1800" height="1250" loading="lazy" alt="The builder never grades its own work. Four roles: you, the builder from one AI company, a locked board that agents cannot edit, and an independent reviewer from a different AI company. Tests are written before code and must fail first. Reviews end after three rounds. Two safety nets retry once on a higher model, ending in accepted by you, or could not finish, with nothing shipped."></a>
+        </div>
+        <div class="flow-m">
+          <ul class="flow-list">
+            <li class="you"><small>You</small><b>Describe, approve, decide</b><span>Plain English in, a plain-words contract to approve, and the final accept.</span></li>
+            <li class="builder"><small>Builder · AI company A</small><b>Builds, never marks its own work</b><span>It can't edit the checks or the board.</span></li>
+            <li class="board"><small>Board · locked</small><b>Runs the checks, records real results</b><span>Agents can't edit it. Evidence is tied to the exact code tested.</span></li>
+            <li class="reviewer"><small>Independent reviewer · AI company B</small><b>Writes the tests first, runs the real product</b><span>Lists every blocker with its harm. Reviews end after three rounds, then one retry on a higher model.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -254,41 +277,44 @@
           <p class="flow-note">The builder never grades its own work.</p>
         </div>
       </div>
+      <div class="flow zoomin">
+        <div class="kicker">Zoom in on step 6</div>
+        <h3>Why every test must fail first</h3>
+        <p class="lead">You don't trust a smoke alarm until you've tested it with smoke. NoMoreHappyPath does the same with every test: before anything is built, the board runs the reviewer's tests on an empty project. A test that can't fail proves nothing.</p>
+        <div class="flow-d">
+          <a class="zoom" href="assets/red-proof.png" target="_blank" rel="noopener"><img src="assets/red-proof.png" width="1800" height="1180" loading="lazy" alt="Two tests compared. A good test, the app shows five days of weather, fails on an empty project, which is correct, then passes after the build, so it is accepted as proof. A useless test, the page exists, passes even on an empty project, so it is marked did not distinguish, sent back, and never counted."></a>
+        </div>
+        <div class="flow-m">
+          <ul class="flow-list proof-m">
+            <li class="board"><b>A good test</b><span>“The app shows five days of weather.” Run on an empty project, it fails. That is correct: it can tell “built” from “not built”. After the build it passes, and now the green means something.</span></li>
+            <li style="border-color:#8a93a8"><b>A useless test</b><span>“The page exists.” It passes even on an empty project, so it proves nothing. It is marked “did not distinguish”, sent back to the reviewer, and never counted as proof.</span></li>
+          </ul>
+        </div>
+        <p class="fine">It proves a test can fail on an empty project, not that it covers every requirement.</p>
+      </div>
     </div>
   </section>
 
-  <section class="alt" id="inside">
+  <section id="inside" class="alt">
     <div class="wrap">
-      <div class="kicker">What’s built in</div>
-      <h2>A complete delivery system, not a prompt</h2>
-      <div class="narrow"><p>Everything needed to take an idea to accepted, release-ready software runs on your own machine, and the safeguards are already in place. Most AI-built apps ship without the things that quietly sink real products, because nobody thought to ask.</p></div>
+      <div class="kicker">What else is built in</div>
+      <h2>The safeguards underneath, not a prompt</h2>
+      <div class="narrow"><p>Under the process, the basics are already in place. Most AI-built apps ship without the things that quietly sink real products, because nobody thought to ask.</p></div>
       <div class="flow" style="margin-bottom:8px">
         <div class="flow-d">
-        <a class="zoom" href="assets/built-in-checks.png" target="_blank" rel="noopener"><img src="assets/built-in-checks.png" width="1860" height="1580" loading="lazy" alt="Twenty-one safeguards built into every task: questions first, contract before code, locked checks, real results, a passing flag is not proof, the reviewer’s own tests, every finding fixed, a CTO that watches, security built in, untested is never a pass, no hidden questions, you decide when it is done, the reviewer runs the real product, scenarios proven, agents cannot edit the board, evidence tied to the code, sandboxed agents, self-healing, a check must fail first, tests locked during repair, and proof for every regression."></a>
+          <a class="zoom" href="assets/built-in-more.png" target="_blank" rel="noopener"><img src="assets/built-in-more.png" width="1860" height="800" loading="lazy" alt="Nine safeguards built in underneath the process: security built in, sandboxed agents, self-healing, agents cannot edit the board, evidence tied to the code, the reviewer runs the real product, real-life scenarios proven, no hidden questions, and plain-words failures."></a>
         </div>
         <div class="flow-m">
           <ul class="flow-list tiles-m">
-          <li style="border-color:#ff7a52"><b>Questions first</b><span>up to four multiple-choice questions, best answer pre-picked, all on one card</span></li>
-          <li style="border-color:#ffb020"><b>Contract before code</b><span>nothing starts until you press Go ahead</span></li>
-          <li style="border-color:#9a8cff"><b>Locked checks</b><span>stored with a fingerprint; the builder can&#x27;t edit them</span></li>
-          <li style="border-color:#9a8cff"><b>Real results</b><span>the board runs the agreed checks and records the real output</span></li>
-          <li style="border-color:#9a8cff"><b>A passing flag isn&#x27;t proof</b><span>a test that only prints &quot;pass&quot; doesn&#x27;t count</span></li>
-          <li style="border-color:#ff7a52"><b>The reviewer&#x27;s own tests</b><span>written by a different AI company, frozen before they run</span></li>
-          <li style="border-color:#2fd4a0"><b>Every finding fixed</b><span>the builder must address every blocker before asking again</span></li>
-          <li style="border-color:#9a8cff"><b>A CTO that watches</b><span>repeated failures are surfaced, silent agents are restarted</span></li>
           <li style="border-color:#2fd4a0"><b>Security built in</b><span>a baseline on every app, plus an optional Enhanced security switch</span></li>
-          <li style="border-color:#ff7a52"><b>Untested is never a pass</b><span>anything that could not be tested is flagged, never passed silently</span></li>
-          <li style="border-color:#ffb020"><b>No hidden questions</b><span>agents never ask in a terminal; every question is a card you see</span></li>
-          <li style="border-color:#ffb020"><b>You decide when it&#x27;s done</b><span>only your acceptance marks a task done</span></li>
-          <li style="border-color:#ff7a52"><b>Runs the real product</b><span>the reviewer runs the finished app, in a real browser when it has a screen</span></li>
-          <li style="border-color:#ff7a52"><b>Scenarios proven</b><span>agreed real-life scenarios must each be simulated and proven before it&#x27;s done</span></li>
-          <li style="border-color:#9a8cff"><b>Agents can&#x27;t edit the board</b><span>tasks, contracts and reviews are written only by the platform</span></li>
-          <li style="border-color:#9a8cff"><b>Evidence tied to the code</b><span>a result for different code than was tested is refused</span></li>
           <li style="border-color:#2fd4a0"><b>Sandboxed agents</b><span>the operating system limits where every agent can write</span></li>
           <li style="border-color:#2fd4a0"><b>Self-healing</b><span>stalled agents are restarted, and a run survives pauses and restarts</span></li>
-          <li style="border-color:#9a8cff"><b>A check must fail first</b><span>a check counts as proof only if it is seen failing on the broken version</span></li>
-          <li style="border-color:#2fd4a0"><b>Tests locked during repair</b><span>the builder can&#x27;t rewrite the tests to make them pass</span></li>
-          <li style="border-color:#ff7a52"><b>Proof for every regression</b><span>a &quot;broken by the repair&quot; finding must show a check that passed before and fails now</span></li>
+          <li style="border-color:#9a8cff"><b>Agents can&#x27;t edit the board</b><span>tasks, contracts and reviews are written only by the platform</span></li>
+          <li style="border-color:#9a8cff"><b>Evidence tied to the code</b><span>a result for different code than was tested is refused</span></li>
+          <li style="border-color:#ff7a52"><b>Runs the real product</b><span>the reviewer runs the finished app, in a real browser when it has a screen</span></li>
+          <li style="border-color:#ff7a52"><b>Real-life scenarios, proven</b><span>agreed scenarios must each be simulated and proven before it&#x27;s done</span></li>
+          <li style="border-color:#ffb020"><b>No hidden questions</b><span>agents never ask in a terminal; every question is a card you see</span></li>
+          <li style="border-color:#ffb020"><b>Plain-words failures</b><span>every message says what happened, what it means and what to do next</span></li>
           </ul>
         </div>
       </div>
