@@ -138,6 +138,9 @@
   .flow-list li b::before { content: attr(data-n) ". "; }
   .flow-list li small { display: block; font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
   .flow-list li span { font-size: 15px; }
+  .flow-list .phase { background: transparent; border-left: 0; padding: 14px 0 0; }
+  .flow-list .phase b { font: 600 20px "IBM Plex Sans Condensed", sans-serif; color: var(--amber); }
+  .flow-list .phase b::before { content: none; }
   .flow-list .you { border-color: #ffb020; } .flow-list .you small { color: #ffb020; }
   .flow-list .builder { border-color: #2fd4a0; } .flow-list .builder small { color: #2fd4a0; }
   .flow-list .board { border-color: #9a8cff; } .flow-list .board small { color: #9a8cff; }
@@ -216,22 +219,37 @@
       <h2>From a sentence to software you can hand to a customer</h2>
       <div class="flow">
         <div class="flow-d">
-          <a class="zoom" href="assets/review-process.png" target="_blank" rel="noopener"><img src="assets/review-process.png" width="2260" height="940" loading="lazy" alt="Process diagram with four lanes: you, builder, board and independent reviewer. You describe the request; the reviewer frames the tests and asks up to four questions; you approve or skip; the builder builds to the agreed checks; the board runs the locked checks; the independent reviewer reviews; the builder repairs; rounds two and three block only on four kinds of problem; if the review cannot finish or repairs keep failing, a retry on a higher model you set; you review and accept."></a>
-          <p class="hint">Click the diagram to open it full size.</p>
+          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1628" loading="lazy" alt="Twenty steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests can fail: the reviewer writes the tests first, the board locks them and checks they fail on the empty project. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
+          <p class="hint">Click the image to open it full size.</p>
         </div>
         <div class="flow-m">
           <ol class="flow-list">
-          <li class="you"><small>You</small><b data-n="1">Describe it</b><span>In plain English.</span></li>
-          <li class="reviewer"><small>Independent reviewer</small><b data-n="2">Frames the tests</b><span>Reads the requirements and asks up to 4 questions.</span></li>
-          <li class="you"><small>You</small><b data-n="3">Approve, or skip</b><span>A plain-words contract, with the best answers pre-picked.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="4">Builds</b><span>To the agreed checks.</span></li>
-          <li class="board"><small>Board</small><b data-n="5">Runs the checks</b><span>The agreed checks, locked in first, with the results recorded.</span></li>
-          <li class="reviewer"><small>Independent reviewer</small><b data-n="6">Review, round 1</b><span>Every real blocker, with its harm and steps to repeat it.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="7">Repairs the list</b><span>All at once, then back to review.</span></li>
-          <li class="reviewer"><small>Independent reviewer</small><b data-n="8">Rounds 2 and 3</b><span>Only four kinds of problem can block: not fixed yet, broken by the fix, an agreed requirement not met, or safety or data loss. New finds become notes.</span></li>
-          <li class="reviewer"><small>Independent reviewer</small><b data-n="9">Review can’t finish</b><span>The reviewer retries on a higher model you set in Settings.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="9">Builder fails fixing</b><span>A fresh builder retries on a higher model you set in Settings. If that fails: “could not finish”, never shipped.</span></li>
-          <li class="you"><small>You</small><b data-n="10">Reviews and accepts</b><span>Passed: you review and accept. Could not finish: the reason is shown.</span></li>
+          <li class="phase"><b>1. Frame it</b></li>
+          <li class="you"><small>You</small><b data-n="1">Describe the task</b><span>In plain English. Your exact words are captured, never altered.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="2">Frames the task</b><span>Up to 4 multiple-choice questions, best answer pre-picked. Skip any time.</span></li>
+          <li class="you"><small>You</small><b data-n="3">Approve the contract</b><span>In plain words, with a “what will be tested” list.</span></li>
+          <li class="phase"><b>2. Prove the tests can fail</b></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="4">Writes the tests first</b><span>From the contract, before any code exists.</span></li>
+          <li class="board"><small>Board</small><b data-n="5">Locks the tests</b><span>Tamper-proof: nobody can edit them.</span></li>
+          <li class="board"><small>Board</small><b data-n="6">Red proof</b><span>Tests must FAIL on the empty project. A test that passes on nothing is flagged “did not distinguish” and sent back.</span></li>
+          <li class="phase"><b>3. Plan and build</b></li>
+          <li class="builder"><small>Builder</small><b data-n="7">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="8">Builds</b><span>To the locked tests.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="9">Runs every scenario itself</b><span>One failure and the review request is refused. Passing evidence is stored tamper-proof.</span></li>
+          <li class="phase"><b>4. Prove it works</b></li>
+          <li class="board"><small>Board</small><b data-n="10">Runs the locked tests</b><span>Records the real results. “Done” counts only if every final-check line says passed.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="11">Runs its own challenges</b><span>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="12">Review, round 1</b><span>Every blocker, with its harm and the steps to reproduce it.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="13">Repairs the whole list</b><span>All at once. Tests are read-only during repair.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="14">Rounds 2 and 3</b><span>Only four kinds of problem can block. New nitpicks become notes.</span></li>
+          <li class="phase"><b>5. If it gets stuck</b></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="15">Reviewer net</b><span>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="16">Builder net</b><span>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</span></li>
+          <li class="board"><small>Board</small><b data-n="17">Could not finish</b><span>Shown with the reason. Nothing ships.</span></li>
+          <li class="phase"><b>6. Decide</b></li>
+          <li class="board"><small>Board</small><b data-n="18">Final gate</b><span>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</span></li>
+          <li class="you"><small>You</small><b data-n="19">Review and decide</b><span>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</span></li>
+          <li class="board"><small>Board</small><b data-n="20">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
           </ol>
           <p class="flow-note">The builder never grades its own work.</p>
         </div>
