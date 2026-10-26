@@ -242,7 +242,7 @@
       <h2>From a sentence to software you can hand to a customer</h2>
       <div class="flow">
         <div class="flow-d">
-          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1628" loading="lazy" alt="Twenty steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests can fail: the reviewer writes the tests first, the board locks them and checks they fail on the project as it was before the work. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
+          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1788" loading="lazy" alt="Twenty-one steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests are real: the reviewer writes the tests first, a coverage check confirms every requirement has a test, the board locks them and checks they fail on the project as it was before the work. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
           <p class="hint">Click the image to open it full size.</p>
         </div>
         <div class="flow-m">
@@ -251,34 +251,35 @@
           <li class="you"><small>You</small><b data-n="1">Describe the task</b><span>In plain English. Your exact words are captured, never altered.</span></li>
           <li class="reviewer"><small>Reviewer</small><b data-n="2">Frames the task</b><span>Up to 4 multiple-choice questions, best answer pre-picked. Skip any time.</span></li>
           <li class="you"><small>You</small><b data-n="3">Approve the contract</b><span>In plain words, with a “what will be tested” list.</span></li>
-          <li class="phase"><b>2. Prove the tests can fail</b></li>
+          <li class="phase"><b>2. Prove the tests are real</b></li>
           <li class="reviewer"><small>Reviewer</small><b data-n="4">Writes the tests first</b><span>From the contract, before any code exists.</span></li>
-          <li class="board"><small>Board</small><b data-n="5">Locks the tests</b><span>Stored with a fingerprint (SHA-256). Any change is recorded.</span></li>
-          <li class="board"><small>Board</small><b data-n="6">Red proof</b><span>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="5">Coverage check</b><span>Every test is labelled with the requirement it covers, plus the failure cases it tries. Each requirement shows “covered” or “gap”, and a gap goes back once.</span></li>
+          <li class="board"><small>Board</small><b data-n="6">Locks the tests</b><span>Stored with a fingerprint (SHA-256). Any change is recorded.</span></li>
+          <li class="board"><small>Board</small><b data-n="7">Red proof</b><span>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</span></li>
           <li class="phase"><b>3. Plan and build</b></li>
-          <li class="builder"><small>Builder</small><b data-n="7">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="8">Builds</b><span>To the locked tests.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="9">Runs every scenario itself</b><span>One failure and the review request is refused. Passing evidence is stored tamper-proof.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="8">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="9">Builds</b><span>To the locked tests.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="10">Runs every scenario itself</b><span>One failure and the review request is refused. Passing evidence is stored tamper-proof.</span></li>
           <li class="phase"><b>4. Prove it works</b></li>
-          <li class="board"><small>Board</small><b data-n="10">Runs the locked tests</b><span>Records the real results. “Done” counts only if every final-check line says passed.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="11">Runs its own challenges</b><span>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="12">Review, round 1</b><span>Every blocker, with its harm and the steps to reproduce it.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="13">Repairs the whole list</b><span>All at once. Tests are read-only during repair.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="14">Rounds 2 and 3</b><span>Only four kinds of problem can block. New nitpicks become notes.</span></li>
+          <li class="board"><small>Board</small><b data-n="11">Runs the locked tests</b><span>Records the real results. “Done” counts only if every final-check line says passed.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="12">Runs its own challenges</b><span>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="13">Review, round 1</b><span>Every blocker, with its harm and the steps to reproduce it.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="14">Repairs the whole list</b><span>All at once. Tests are read-only during repair.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="15">Rounds 2 and 3</b><span>Only four kinds of problem can block. New nitpicks become notes.</span></li>
           <li class="phase"><b>5. If it gets stuck</b></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="15">Reviewer net</b><span>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="16">Builder net</b><span>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</span></li>
-          <li class="board"><small>Board</small><b data-n="17">Could not finish</b><span>Shown with the reason. Nothing ships.</span></li>
+          <li class="reviewer"><small>Reviewer</small><b data-n="16">Reviewer net</b><span>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</span></li>
+          <li class="builder"><small>Builder</small><b data-n="17">Builder net</b><span>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</span></li>
+          <li class="board"><small>Board</small><b data-n="18">Could not finish</b><span>Shown with the reason. Nothing ships.</span></li>
           <li class="phase"><b>6. Decide</b></li>
-          <li class="board"><small>Board</small><b data-n="18">Final gate</b><span>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</span></li>
-          <li class="you"><small>You</small><b data-n="19">Review and decide</b><span>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</span></li>
-          <li class="board"><small>Board</small><b data-n="20">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
+          <li class="board"><small>Board</small><b data-n="19">Final gate</b><span>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</span></li>
+          <li class="you"><small>You</small><b data-n="20">Review and decide</b><span>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</span></li>
+          <li class="board"><small>Board</small><b data-n="21">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
           </ol>
           <p class="flow-note">The builder never grades its own work.</p>
         </div>
       </div>
       <div class="flow zoomin">
-        <div class="kicker">Zoom in on step 6</div>
+        <div class="kicker">Zoom in on step 7</div>
         <h3>Why every test must fail first</h3>
         <p class="lead">You don't trust a smoke alarm until you've tested it with smoke. NoMoreHappyPath does the same with every test: before the work counts, the board runs the reviewer's tests on the project as it was before the work. A test that can't fail proves nothing.</p>
         <div class="flow-d">
@@ -290,7 +291,7 @@
             <li style="border-color:#8a93a8"><b>A useless test</b><span>“The page exists.” It passes even before anything is built, so it proves nothing. It is flagged “did not distinguish” and does not count as proof.</span></li>
           </ul>
         </div>
-        <p class="fine">It shows a test can fail before the work, not that it covers every requirement. If a check can't be compared, the board says so.</p>
+        <p class="fine">The coverage check (step 5) is the other half: it confirms every requirement has a test, including what happens when things go wrong. The board checks the reviewer’s labels; it cannot judge how clever a test is, which is why the reviewer is from the other AI company. The red proof shows a test can fail before the work, not that it covers every requirement. If a check can't be compared, the board says so.</p>
       </div>
     </div>
   </section>
