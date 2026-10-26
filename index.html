@@ -118,6 +118,8 @@
   details[open] summary::after { content: "–"; }
   details summary::-webkit-details-marker { display: none; }
   details p { margin: 12px 0 0; max-width: 46em; }
+  details ul { margin: 12px 0 0; padding-left: 20px; max-width: 46em; }
+  details li { margin: 8px 0; }
 
   .final { text-align: center; }
   .final .cta { justify-content: center; }
@@ -153,6 +155,56 @@
   .tiles-m li b::before { content: none; }
   @media (max-width: 820px) { .flow-d { display: none; } .flow-m { display: block; } }
 
+
+  /* v2 */
+  section.strip { padding: 34px 0; background: var(--ink-2); border-top: 1px solid var(--ink-3); border-bottom: 1px solid var(--ink-3); }
+  .proofrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .proofrow a { text-decoration: none; color: var(--white); padding: 4px 0 4px 16px; border-left: 3px solid var(--amber); }
+  .proofrow b { display: block; font: 600 21px "IBM Plex Sans Condensed", sans-serif; }
+  .proofrow span { font-size: 15.5px; color: var(--paper); }
+  .phases { list-style: none; counter-reset: ph; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .phases li { counter-increment: ph; background: var(--ink-3); border-radius: 8px; padding: 20px 18px; border-top: 3px solid var(--amber); }
+  .phases li::before { content: counter(ph); display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--amber); color: var(--ink); font: 600 15px "IBM Plex Mono", monospace; margin-bottom: 12px; }
+  .phases b { display: block; font: 600 18px/1.2 "IBM Plex Sans Condensed", sans-serif; margin-bottom: 8px; }
+  .phases span { font-size: 14.5px; line-height: 1.5; display: block; }
+
+  .big21 { display: flex; align-items: center; gap: 30px; margin: 10px 0 34px; }
+  .big21 .num { font: 700 150px/0.85 "IBM Plex Sans Condensed", sans-serif; color: var(--amber); letter-spacing: -0.04em; }
+  .big21 b { display: block; font: 600 30px/1.2 "IBM Plex Sans Condensed", sans-serif; margin-bottom: 10px; }
+  .big21 span { font-size: 17px; color: var(--paper); max-width: 40em; display: block; }
+  .stepper { background: var(--ink); border: 1.5px solid var(--ink-3); border-radius: 14px; padding: 18px; }
+  .ph-tabs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .ph-tab { all: unset; cursor: pointer; padding: 12px 12px 10px; border-radius: 10px; background: var(--ink-2); border-top: 3px solid transparent; transition: background .2s; }
+  .ph-tab i { font: 600 13px "IBM Plex Mono", monospace; font-style: normal; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ink-3); color: var(--white); margin-bottom: 8px; }
+  .ph-tab b { display: block; font: 600 16px/1.2 "IBM Plex Sans Condensed", sans-serif; }
+  .ph-tab small { color: var(--paper); font-size: 12.5px; }
+  .ph-tab.on { background: var(--ink-3); border-top-color: var(--c); }
+  .ph-tab.on i { background: var(--c); color: var(--ink); }
+  .ph-tab:focus-visible { outline: 2px solid var(--amber); }
+  .ph-bar { height: 3px; background: var(--ink-2); border-radius: 2px; margin: 14px 0 16px; overflow: hidden; }
+  .ph-bar span { display: block; height: 100%; width: 0; background: var(--amber); }
+  .ph-panel { display: none; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .ph-panel.on { display: grid; animation: phin .35s ease; }
+  @keyframes phin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .st { background: var(--ink-2); border-radius: 10px; padding: 16px; border-left: 5px solid var(--amber); }
+  .st.reviewer { border-color: #ff7a52; } .st.board { border-color: #9a8cff; } .st.builder { border-color: #2fd4a0; }
+  .st-h { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .st-h .n { font: 600 14px "IBM Plex Mono", monospace; color: var(--amber); }
+  .st-h b { font: 600 18px/1.2 "IBM Plex Sans Condensed", sans-serif; flex: 1; }
+  .st-h em { font-style: normal; font: 600 11px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .05em; color: var(--paper); }
+  .st p { margin: 0; font-size: 15px; line-height: 1.5; }
+  @media (prefers-reduced-motion: reduce) { .ph-panel.on { animation: none; } }
+  @media (max-width: 820px) { .big21 { flex-direction: column; align-items: flex-start; gap: 6px; } .big21 .num { font-size: 110px; } }
+  .steps21 { margin-top: 30px; }
+  .steps21 img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1.5px solid var(--ink-3); }
+  details.more { border: 0; padding: 0; margin-top: 26px; }
+  details.more summary { display: inline-flex; font-size: 16px; color: var(--amber); }
+  details.more summary::after { content: "+"; margin-left: 10px; }
+  details.more[open] summary::after { content: "–"; }
+  details.more img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1.5px solid var(--ink-3); margin-top: 18px; }
+  @media (max-width: 1000px) { .phases { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 820px) { .phases, .proofrow { grid-template-columns: 1fr; } }
+
   @media (max-width: 900px) {
     .steps { grid-template-columns: repeat(2, 1fr); }
   }
@@ -175,10 +227,9 @@
     <a class="brand" href="/"><img src="assets/logo-256.png" alt="" width="40" height="40"><span>NoMoreHappyPath</span></a>
     <nav>
       <a href="#how">How it works</a>
-      <a href="#inside">What’s inside</a>
-      <a href="#windows">Windows</a>
+      <a href="#platform">Platform</a>
       <a href="#built">What it built</a>
-      <a href="#proof">Proof</a>
+      <a href="#proof">Receipts</a>
       <a href="#install">Install</a>
       <a class="gh" href="https://github.com/nomorehappypath/nomorehappypath">GitHub →</a>
     </nav>
@@ -189,11 +240,11 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>Build commercial software with AI agents.<br><em>Governance built in.</em></h1>
-        <p class="lede">NoMoreHappyPath is an open-source delivery system for AI-built software. You describe what you want in plain English. A team of AI agents plans it, builds it, tests it and reviews it, inside a governed project board. Nothing moves forward without evidence, and “done” stays your word.</p>
+        <h1>Be a software company of one.<br><em>Make ‘done’ mean done.</em></h1>
+        <p class="lede">NoMoreHappyPath is an open-source delivery system for building commercial software with AI agents. A builder, an independent reviewer from a different AI company and a CTO take your idea through 21 quality steps, in a control room that speaks plain English. Nothing is done until you accept it.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get it on GitHub</a>
-          <a class="btn ghost" href="#install">How to install</a>
+          <a class="btn ghost" href="#how">See how it works</a>
         </div>
         <p class="fine">Free and open source (Apache 2.0) · macOS and Linux · runs on your machine, with your own AI accounts</p>
       </div>
@@ -206,200 +257,99 @@
     </div>
   </div>
 
-  <section>
+  <section class="strip">
     <div class="wrap">
-      <div class="kicker">The problem</div>
-      <h2>AI is great at the happy path. Customers don’t live there.</h2>
-      <div class="narrow">
-        <p>AI will build you an app that works in the demo. Then you find out what it didn’t test: the failed login, the empty screen, the error message that shows a stack trace. An AI that grades its own work passes itself almost every time, so you become the QA department for your own AI.</p>
-        <p>NoMoreHappyPath is built so that doesn’t happen: the work is checked by someone with no reason to agree.</p>
-      </div>
-    </div>
-  </section>
-  <section id="why" class="alt">
-    <div class="wrap">
-      <div class="kicker">Why it's different</div>
-      <h2>Two AI companies, tests before code, reviews that end</h2>
-      <div class="flow">
-        <div class="flow-d">
-          <a class="zoom" href="assets/why-nmhp.png" target="_blank" rel="noopener"><img src="assets/why-nmhp.png" width="1800" height="1250" loading="lazy" alt="The builder never grades its own work. Four roles: you, the builder from one AI company, a locked board that agents cannot edit, and an independent reviewer from a different AI company. Tests are written before code and must fail first. Reviews end after three rounds. Two safety nets retry once on a higher model, ending in accepted by you, or could not finish, with nothing shipped."></a>
-        </div>
-        <div class="flow-m">
-          <ul class="flow-list">
-            <li class="you"><small>You</small><b>Describe, approve, decide</b><span>Plain English in, a plain-words contract to approve, and the final accept.</span></li>
-            <li class="builder"><small>Builder · AI company A</small><b>Builds, never marks its own work</b><span>It can't edit the checks or the board.</span></li>
-            <li class="board"><small>Board · locked</small><b>Runs the checks, records real results</b><span>Agents can't edit it. Evidence is tied to the exact code tested.</span></li>
-            <li class="reviewer"><small>Independent reviewer · AI company B</small><b>Writes the tests first, runs the real product</b><span>Lists every blocker with its harm. Reviews end after three rounds, then one retry on a higher model.</span></li>
-          </ul>
-        </div>
+      <div class="kicker">Built with it, used by clients</div>
+      <div class="proofrow">
+        <a href="#built"><b>Acremuse</b><span>A full commercial land due diligence platform</span></a>
+        <a href="#built"><b>PropDesk</b><span>Commercial land pre-purchase analysis, and a phone app for property owners</span></a>
+        <a href="#built"><b>Studio</b><span>A full marketing agency</span></a>
       </div>
     </div>
   </section>
 
-  <section id="how">
+  <section id="how" class="alt">
     <div class="wrap">
       <div class="kicker">How it works</div>
-      <h2>From a sentence to software you can hand to a customer</h2>
-      <div class="flow">
+      <h2>Most AI says “done” in one step. This takes 21.</h2>
+      <div class="big21">
+        <div class="num">21</div>
+        <div class="txt"><b>quality steps between your idea and accepted work.</b><span>Every step is visible in Mission Control, in plain English, and nothing is done until you accept it.</span></div>
+      </div>
+      <div class="steps21">
         <div class="flow-d">
-          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1809" loading="lazy" alt="Twenty-one steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests are real: the reviewer writes the tests first, a coverage check confirms every requirement has a test, the board locks them and checks they fail on the project as it was before the work. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
-          <p class="hint">Click the image to open it full size.</p>
+          <div class="stepper" id="stepper">
+            <div class="ph-tabs"><button class="ph-tab on" data-i="0" style="--c:#ffb020"><i>1</i><b>Frame it</b><small>Steps 1–3</small></button><button class="ph-tab" data-i="1" style="--c:#ff6b5e"><i>2</i><b>Prove the tests are real</b><small>Steps 4–7</small></button><button class="ph-tab" data-i="2" style="--c:#2fd4a0"><i>3</i><b>Plan and build</b><small>Steps 8–10</small></button><button class="ph-tab" data-i="3" style="--c:#9a8cff"><i>4</i><b>Prove it works</b><small>Steps 11–15</small></button><button class="ph-tab" data-i="4" style="--c:#ffb020"><i>5</i><b>If it gets stuck</b><small>Steps 16–18</small></button><button class="ph-tab" data-i="5" style="--c:#5fd38d"><i>6</i><b>Decide</b><small>Steps 19–21</small></button></div>
+            <div class="ph-bar"><span></span></div>
+            <div class="ph-panel on" data-i="0"><div class="st you"><div class="st-h"><span class="n">1</span><b>Describe the task</b><em>You</em></div><p>In plain English. Your exact words are captured, never altered.</p></div><div class="st reviewer"><div class="st-h"><span class="n">2</span><b>Frames the task</b><em>Reviewer</em></div><p>Up to 4 multiple-choice questions, best answer pre-picked. Skip any time.</p></div><div class="st you"><div class="st-h"><span class="n">3</span><b>Approve the contract</b><em>You</em></div><p>In plain words, with a “what will be tested” list.</p></div></div><div class="ph-panel" data-i="1"><div class="st reviewer"><div class="st-h"><span class="n">4</span><b>Writes the tests first</b><em>Reviewer</em></div><p>From the contract, before any code exists.</p></div><div class="st reviewer"><div class="st-h"><span class="n">5</span><b>Coverage check</b><em>Reviewer</em></div><p>Each test is labelled with the requirement(s) it covers; each requirement lists the failure cases it tries. A requirement shows “covered” or “gap”; a gap goes back once, and you are never held.</p></div><div class="st board"><div class="st-h"><span class="n">6</span><b>Locks the tests</b><em>Board</em></div><p>Stored with a fingerprint (SHA-256). Any change is recorded.</p></div><div class="st board"><div class="st-h"><span class="n">7</span><b>Red proof</b><em>Board</em></div><p>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</p></div></div><div class="ph-panel" data-i="2"><div class="st builder"><div class="st-h"><span class="n">8</span><b>Plans the work</b><em>Builder</em></div><p>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</p></div><div class="st builder"><div class="st-h"><span class="n">9</span><b>Builds</b><em>Builder</em></div><p>To the locked tests.</p></div><div class="st builder"><div class="st-h"><span class="n">10</span><b>Runs every scenario itself</b><em>Builder</em></div><p>One failure and the review request is refused. Passing evidence is stored tamper-proof.</p></div></div><div class="ph-panel" data-i="3"><div class="st board"><div class="st-h"><span class="n">11</span><b>Runs the locked tests</b><em>Board</em></div><p>Records the real results. “Done” counts only if every final-check line says passed.</p></div><div class="st reviewer"><div class="st-h"><span class="n">12</span><b>Runs its own challenges</b><em>Reviewer</em></div><p>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</p></div><div class="st reviewer"><div class="st-h"><span class="n">13</span><b>Review, round 1</b><em>Reviewer</em></div><p>Every blocker, with its harm and the steps to reproduce it.</p></div><div class="st builder"><div class="st-h"><span class="n">14</span><b>Repairs the whole list</b><em>Builder</em></div><p>All at once. Tests are read-only during repair.</p></div><div class="st reviewer"><div class="st-h"><span class="n">15</span><b>Rounds 2 and 3</b><em>Reviewer</em></div><p>Only four kinds of problem can block. New nitpicks become notes.</p></div></div><div class="ph-panel" data-i="4"><div class="st reviewer"><div class="st-h"><span class="n">16</span><b>Reviewer net</b><em>Reviewer</em></div><p>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</p></div><div class="st builder"><div class="st-h"><span class="n">17</span><b>Builder net</b><em>Builder</em></div><p>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</p></div><div class="st board"><div class="st-h"><span class="n">18</span><b>Could not finish</b><em>Board</em></div><p>Shown with the reason. Nothing ships.</p></div></div><div class="ph-panel" data-i="5"><div class="st board"><div class="st-h"><span class="n">19</span><b>Final gate</b><em>Board</em></div><p>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</p></div><div class="st you"><div class="st-h"><span class="n">20</span><b>Review and decide</b><em>You</em></div><p>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</p></div><div class="st board"><div class="st-h"><span class="n">21</span><b>Accepted work lands</b><em>Board</em></div><p>It reaches the project&#x27;s main.</p></div></div>
+          </div>
+          <details class="more"><summary>See all 21 steps on one page</summary><a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1809" loading="lazy" alt="The 21 steps in six phases, from describing the task to accepted work."></a></details>
         </div>
-        <div class="flow-m">
-          <ol class="flow-list">
-          <li class="phase"><b>1. Frame it</b></li>
-          <li class="you"><small>You</small><b data-n="1">Describe the task</b><span>In plain English. Your exact words are captured, never altered.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="2">Frames the task</b><span>Up to 4 multiple-choice questions, best answer pre-picked. Skip any time.</span></li>
-          <li class="you"><small>You</small><b data-n="3">Approve the contract</b><span>In plain words, with a “what will be tested” list.</span></li>
-          <li class="phase"><b>2. Prove the tests are real</b></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="4">Writes the tests first</b><span>From the contract, before any code exists.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="5">Coverage check</b><span>Each test is labelled with the requirement(s) it covers; each requirement lists the failure cases it tries. A requirement shows “covered” or “gap”; a gap goes back once, and you are never held.</span></li>
-          <li class="board"><small>Board</small><b data-n="6">Locks the tests</b><span>Stored with a fingerprint (SHA-256). Any change is recorded.</span></li>
-          <li class="board"><small>Board</small><b data-n="7">Red proof</b><span>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</span></li>
-          <li class="phase"><b>3. Plan and build</b></li>
-          <li class="builder"><small>Builder</small><b data-n="8">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="9">Builds</b><span>To the locked tests.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="10">Runs every scenario itself</b><span>One failure and the review request is refused. Passing evidence is stored tamper-proof.</span></li>
-          <li class="phase"><b>4. Prove it works</b></li>
-          <li class="board"><small>Board</small><b data-n="11">Runs the locked tests</b><span>Records the real results. “Done” counts only if every final-check line says passed.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="12">Runs its own challenges</b><span>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="13">Review, round 1</b><span>Every blocker, with its harm and the steps to reproduce it.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="14">Repairs the whole list</b><span>All at once. Tests are read-only during repair.</span></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="15">Rounds 2 and 3</b><span>Only four kinds of problem can block. New nitpicks become notes.</span></li>
-          <li class="phase"><b>5. If it gets stuck</b></li>
-          <li class="reviewer"><small>Reviewer</small><b data-n="16">Reviewer net</b><span>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</span></li>
-          <li class="builder"><small>Builder</small><b data-n="17">Builder net</b><span>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</span></li>
-          <li class="board"><small>Board</small><b data-n="18">Could not finish</b><span>Shown with the reason. Nothing ships.</span></li>
-          <li class="phase"><b>6. Decide</b></li>
-          <li class="board"><small>Board</small><b data-n="19">Final gate</b><span>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</span></li>
-          <li class="you"><small>You</small><b data-n="20">Review and decide</b><span>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</span></li>
-          <li class="board"><small>Board</small><b data-n="21">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
-          </ol>
-          <p class="flow-note">The builder never grades its own work.</p>
-        </div>
-      </div>
-      <div class="flow zoomin">
-        <div class="kicker">Zoom in on step 7</div>
-        <h3>Why every test must fail first</h3>
-        <p class="lead">You don't trust a smoke alarm until you've tested it with smoke. NoMoreHappyPath does the same with every test: before the work counts, the board runs the reviewer's tests on the project as it was before the work. A test that can't fail proves nothing.</p>
-        <div class="flow-d">
-          <a class="zoom" href="assets/red-proof.png" target="_blank" rel="noopener"><img src="assets/red-proof.png" width="1800" height="1180" loading="lazy" alt="Two tests compared. A good test, the app shows five days of weather, fails before the work, which is correct, then passes after the build, so it is accepted as proof. A useless test, the page exists, passes even before the work, so it is marked did not distinguish and does not count as proof."></a>
-        </div>
-        <div class="flow-m">
-          <ul class="flow-list proof-m">
-            <li class="board"><b>A good test</b><span>“The app shows five days of weather.” Run before the work, it fails. That is correct: it can tell “built” from “not built”. After the build it passes, and now the green means something.</span></li>
-            <li style="border-color:#8a93a8"><b>A useless test</b><span>“The page exists.” It passes even before anything is built, so it proves nothing. It is flagged “did not distinguish” and does not count as proof.</span></li>
-          </ul>
-        </div>
-        <p class="fine">The coverage check (step 5) is the other half: it confirms every requirement has a test, including what happens when things go wrong. The board checks the reviewer’s labels; it cannot judge how clever a test is, which is why the reviewer is from the other AI company. The red proof shows a test can fail before the work, not that it covers every requirement. If a check can't be compared, the board says so.</p>
+        <div class="flow-m"><ol class="flow-list">
+            <li class="phase"><b>1. Frame it</b></li>
+            <li class="you"><small>You</small><b data-n="1">Describe the task</b><span>In plain English. Your exact words are captured, never altered.</span></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="2">Frames the task</b><span>Up to 4 multiple-choice questions, best answer pre-picked. Skip any time.</span></li>
+            <li class="you"><small>You</small><b data-n="3">Approve the contract</b><span>In plain words, with a “what will be tested” list.</span></li>
+            <li class="phase"><b>2. Prove the tests are real</b></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="4">Writes the tests first</b><span>From the contract, before any code exists.</span></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="5">Coverage check</b><span>Each test is labelled with the requirement(s) it covers; each requirement lists the failure cases it tries. A requirement shows “covered” or “gap”; a gap goes back once, and you are never held.</span></li>
+            <li class="board"><small>Board</small><b data-n="6">Locks the tests</b><span>Stored with a fingerprint (SHA-256). Any change is recorded.</span></li>
+            <li class="board"><small>Board</small><b data-n="7">Red proof</b><span>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</span></li>
+            <li class="phase"><b>3. Plan and build</b></li>
+            <li class="builder"><small>Builder</small><b data-n="8">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
+            <li class="builder"><small>Builder</small><b data-n="9">Builds</b><span>To the locked tests.</span></li>
+            <li class="builder"><small>Builder</small><b data-n="10">Runs every scenario itself</b><span>One failure and the review request is refused. Passing evidence is stored tamper-proof.</span></li>
+            <li class="phase"><b>4. Prove it works</b></li>
+            <li class="board"><small>Board</small><b data-n="11">Runs the locked tests</b><span>Records the real results. “Done” counts only if every final-check line says passed.</span></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="12">Runs its own challenges</b><span>Walks the real product, in a real browser when it has a screen. A PASS is refused if any fails.</span></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="13">Review, round 1</b><span>Every blocker, with its harm and the steps to reproduce it.</span></li>
+            <li class="builder"><small>Builder</small><b data-n="14">Repairs the whole list</b><span>All at once. Tests are read-only during repair.</span></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="15">Rounds 2 and 3</b><span>Only four kinds of problem can block. New nitpicks become notes.</span></li>
+            <li class="phase"><b>5. If it gets stuck</b></li>
+            <li class="reviewer"><small>Reviewer</small><b data-n="16">Reviewer net</b><span>If the review can&#x27;t be completed, it retries once on a higher model set in Settings.</span></li>
+            <li class="builder"><small>Builder</small><b data-n="17">Builder net</b><span>If repairs keep failing, a fresh builder retries once on a higher model set in Settings.</span></li>
+            <li class="board"><small>Board</small><b data-n="18">Could not finish</b><span>Shown with the reason. Nothing ships.</span></li>
+            <li class="phase"><b>6. Decide</b></li>
+            <li class="board"><small>Board</small><b data-n="19">Final gate</b><span>Every part settled, the full test suite on the combined work. The CTO release gate blocks if evidence is missing or tampered.</span></li>
+            <li class="you"><small>You</small><b data-n="20">Review and decide</b><span>Accept (Windows: Get the build, with its SHA-256) or Not accepted with your reason; it goes straight back into repair.</span></li>
+            <li class="board"><small>Board</small><b data-n="21">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
+        </ol></div>
       </div>
     </div>
   </section>
 
-  <section id="inside" class="alt">
+  <section id="why">
     <div class="wrap">
-      <div class="kicker">What else is built in</div>
-      <h2>The safeguards underneath, not a prompt</h2>
-      <div class="narrow"><p>Under the process, the basics are already in place. Most AI-built apps ship without the things that quietly sink real products, because nobody thought to ask.</p></div>
-      <div class="flow" style="margin-bottom:8px">
-        <div class="flow-d">
-          <a class="zoom" href="assets/built-in-more.png" target="_blank" rel="noopener"><img src="assets/built-in-more.png" width="1860" height="1010" loading="lazy" alt="Twelve safeguards built in underneath the process: security built in, sandboxed agents, self-healing, agents cannot edit the board, evidence tied to the code, the reviewer runs the real product, real-life scenarios proven, no hidden questions, plain-words failures, no wasted runs, a difficulty note, and lean agents."></a>
-        </div>
-        <div class="flow-m">
-          <ul class="flow-list tiles-m">
-          <li style="border-color:#2fd4a0"><b>Security built in</b><span>a baseline on every app, plus an optional Enhanced security switch</span></li>
-          <li style="border-color:#2fd4a0"><b>Sandboxed agents</b><span>the operating system limits where every agent can write</span></li>
-          <li style="border-color:#2fd4a0"><b>Self-healing</b><span>stalled agents are restarted, and a run survives pauses and restarts</span></li>
-          <li style="border-color:#9a8cff"><b>Agents can&#x27;t edit the board</b><span>tasks, contracts and reviews are written only by the platform</span></li>
-          <li style="border-color:#9a8cff"><b>Evidence tied to the code</b><span>a result for different code than was tested is refused</span></li>
-          <li style="border-color:#ff7a52"><b>Runs the real product</b><span>the reviewer runs the finished app, in a real browser when it has a screen</span></li>
-          <li style="border-color:#ff7a52"><b>Real-life scenarios, proven</b><span>agreed scenarios must each be simulated and proven before it&#x27;s done</span></li>
-          <li style="border-color:#ffb020"><b>No hidden questions</b><span>agents never ask in a terminal; every question is a card you see</span></li>
-          <li style="border-color:#ffb020"><b>Plain-words failures</b><span>every message says what happened, what it means and what to do next</span></li>
-          <li style="border-color:#9a8cff"><b>No wasted runs</b><span>what passed once on the same code is not run again; only a real bug or a security leak blocks a review</span></li>
-          <li style="border-color:#ffb020"><b>A difficulty note</b><span>each agent says in one line what slowed it down, so a weak task is spotted early</span></li>
-          <li style="border-color:#2fd4a0"><b>Lean agents</b><span>one-page role cards and a plain usage line on every task keep agents focused and cheaper</span></li>
-          </ul>
-        </div>
+      <div class="kicker">Why it’s different</div>
+      <h2>Quality that is proven, not promised</h2>
+      <div class="three">
+        <div class="card"><h3>Tests before code</h3><p>A reviewer from a different AI company reads your requirements and writes the tests before any code exists. A coverage check makes sure every requirement has a test, including what happens when things go wrong.</p></div>
+        <div class="card"><h3>Every test must fail first</h3><p>You don’t trust a smoke alarm until you’ve tested it with smoke. The board runs each test before the work: a test that passes on nothing proves nothing, so it doesn’t count.</p></div>
+        <div class="card"><h3>Reviews that end</h3><p>Round one lists every real blocker, with its harm. Rounds two and three only block on four kinds of problem. Then a retry on a higher model, or an honest “could not finish”. Never an endless loop.</p></div>
       </div>
-      <p class="fine">Professional-grade basics by default. Not a penetration test or a compliance audit.</p>
-      <div class="two">
-        <div class="card"><h3>Mission Control</h3><p>A local web app to watch every project, preview the app, ask questions about your project (project chat uses your own OpenAI API key), and accept the result.</p></div>
-        <div class="card"><h3>Runs where you work</h3><p>macOS, and headless Linux servers. The harness runs on your machine and your agents use your own accounts. There is no server of ours in the loop.</p></div>
-      </div>
+      <details class="more"><summary>Why every test must fail first, explained</summary>
+        <a class="zoom" href="assets/red-proof.png" target="_blank" rel="noopener"><img src="assets/red-proof.png" width="1800" height="1180" loading="lazy" alt="A good test fails before the work and passes after it; a useless test passes even before the work and does not count."></a>
+      </details>
     </div>
   </section>
 
-  <section id="windows">
+  <section id="platform" class="alt">
     <div class="wrap">
-      <div class="kicker">Test where it will run</div>
-      <h2>Build for Windows, from a Mac or Linux machine</h2>
-      <div class="narrow"><p>NoMoreHappyPath runs on macOS and Linux, and it builds and proves Windows programs on a real Windows machine you give the agents: a virtual machine on your Mac, Linux box or PC, or a spare computer. You connect it once from Mission Control. The agents do the rest.</p></div>
-      <div class="two" style="align-items:start">
-        <div>
-          <video class="video" controls preload="none" poster="assets/windows-build-poster.png" playsinline>
-            <source src="assets/windows-build.mp4" type="video/mp4">
-          </video>
-          <p class="cap">A Windows tool built and tested on a connected Windows machine, from a Mac. Narration by AI.</p>
-        </div>
-        <div>
-          <div class="card" style="margin-bottom:16px"><h3>Connect it once</h3><p>Press <em>Test machine</em> on the project, enter the address and account, and connect. Your password is used for that one sign-in and forgotten.</p></div>
-          <div class="card" style="margin-bottom:16px"><h3>Built and proven there</h3><p>The agents install their own build and test tools on that machine over ssh, build the program and run its tests. The independent reviewer, from the other AI company, runs them again on the same machine.</p></div>
-          <div class="card"><h3>You get the program</h3><p>The acceptance card offers the finished file with its SHA-256, what it was tested on and the steps to try it. Compare the SHA-256 before you run it.</p></div>
-        </div>
+      <div class="kicker">The platform</div>
+      <h2>Everything a software company needs, on your machine</h2>
+      <div class="narrow"><p>Underneath it all: a board the agents can’t edit, an operating-system sandbox around every agent, and self-healing when an agent stalls.</p></div>
+      <div class="three">
+        <div class="card"><h3>Mission Control</h3><p>A friendly interface to talk to the agents and see where each task is, step by step, explained in plain English.</p></div>
+        <div class="card"><h3>A CTO that clears the path</h3><p>It doesn’t only monitor: it clears the way for the builder and the reviewer so nothing stays stuck, and never asks you a technical question.</p></div>
+        <div class="card"><h3>The right model, within your quota</h3><p>Claude, Codex or Gemini in any role. Specs on higher models, code on lower ones, an automatic switch to a higher model when needed, and a check on your quota.</p></div>
+        <div class="card"><h3>Test where it will run</h3><p>Define virtual machines of different operating systems as test targets. A Windows program is built and tested on a real Windows machine, from your Mac.</p></div>
+        <div class="card"><h3>Ask, look back, pause</h3><p>Ask questions about your project, look at its full history, and pause and restart without losing anything.</p></div>
+        <div class="card"><h3>Security, enhanced on demand</h3><p>Every app gets a built-in security baseline. Switch on Enhanced security for a task and it adds a threat model, security tests and a controls register, ready for a security assessment or audit.</p></div>
       </div>
-      <p class="fine">Not code-signed, so Windows may warn you. The harness itself runs on macOS and Linux, one test machine serves one project, and a test only proves what that machine can show.</p>
-    </div>
-  </section>
-  <section class="alt">
-    <div class="wrap">
-      <div class="kicker">Three AI companies, any role</div>
-      <h2>Never tied to one vendor’s price</h2>
-      <div class="narrow">
-        <p>Your builder, your reviewer and your project watcher can each be Codex, Claude or Gemini. Swap them when prices or quality change. One rule never changes: whoever checks the work is never the same company as whoever built it.</p>
-      </div>
-      <div class="roles">
-        <div class="role"><b>Builder</b>plans and writes the software</div>
-        <div class="role"><b>Reviewer</b>runs it and tries to break it</div>
-        <div class="role"><b>Watcher</b>keeps the whole process honest</div>
-      </div>
-      <div class="vendors"><span>Codex · OpenAI</span><span>Claude · Anthropic</span><span>Gemini · Google</span></div>
-      <p class="center narrow" style="margin-top:26px">Use a top model to write the plan, then lighter models to build and review: the process keeps the quality up, and your subscription usage down.</p>
     </div>
   </section>
 
-
-  <section id="why-time">
-    <div class="wrap">
-      <div class="kicker">Why it takes longer</div>
-      <h2>A small app in 48 minutes, not 5. On purpose.</h2>
-      <div class="narrow"><p>Any AI can produce a demo in five minutes. NoMoreHappyPath treats every project as a product to release to real customers, not an alpha or a beta. That standard is where the time goes.</p></div>
-      <div class="two">
-        <div class="card" style="border-top-color:var(--red)">
-          <h3>5 minutes: a demo</h3>
-          <ul>
-            <li>Built straight from the prompt</li>
-            <li>Tested only where everything goes right</li>
-            <li>The same AI says it works</li>
-            <li>You find the problems after launch</li>
-          </ul>
-        </div>
-        <div class="card" style="border-top-color:var(--green)">
-          <h3>48 minutes: a release</h3>
-          <ul>
-            <li>Built in parts, each part reviewed by a different AI</li>
-            <li>Failure cases tried: a city that doesn’t exist, a service that is down</li>
-            <li>A failed review sent back, fixed, and checked again</li>
-            <li>A final review that opens the whole app in a real browser</li>
-          </ul>
-        </div>
-      </div>
-      <p class="narrow" style="margin-top:28px">In the weather build on this page, one of the four reviews failed. A wrong “Updated” time. A five-minute demo would have shipped it. Here, it was caught, fixed and checked again before the app reached the owner.</p>
-      <p class="narrow"><strong>Speed is cheap. Trust takes time.</strong> If you only need a demo, any AI will do. This is for when you intend to put the software in front of customers.</p>
-    </div>
-  </section>
-
-  <section id="built" class="alt">
+  <section id="built">
     <div class="wrap">
       <div class="kicker">What it built</div>
       <h2>Real products, built with it and used by clients</h2>
@@ -423,11 +373,11 @@
     </div>
   </section>
 
-  <section id="proof">
+  <section id="proof" class="alt">
     <div class="wrap">
       <div class="kicker">Real receipts</div>
       <h2>It fails its own work, and says so</h2>
-      <div class="narrow"><p>These come from the project’s own records, not mocks. Passing tests didn’t stop the reviewer from failing the work.</p></div>
+      <div class="narrow"><p>These come from the project’s own records, not mocks. Passing tests didn’t stop the reviewer from failing the work. A small weather app took 48 minutes and four reviews; one failed, was fixed and checked again before it reached the owner.</p></div>
       <div class="two">
         <div class="receipt" role="img" aria-label="Real review record: the builder reported all tests passing; the independent reviewer tried the update as a user would, and failed it.">
           <div class="t">The update button</div>
@@ -456,17 +406,13 @@
           <q>That is what it costs to build something you can trust.</q>
         </div>
       </div>
-      <div class="shots">
-        <figure><img src="assets/shot-ready.png" alt="Mission Control showing the delivery agent ready for the owner's test, with independent review passes recorded" loading="lazy"><figcaption>Mission Control: every task shows its review passes before it reaches you.</figcaption></figure>
-        <figure><img src="assets/shot-app.png" alt="The finished weather app showing the temperature for Austin, Texas" loading="lazy"><figcaption>What came out: a working app, reviewed by a different AI than the one that wrote it.</figcaption></figure>
-      </div>
     </div>
   </section>
 
-  <section class="alt">
+  <section id="install">
     <div class="wrap">
-      <div class="kicker">Before you install</div>
-      <h2>What you need, honestly</h2>
+      <div class="kicker">Get started</div>
+      <h2>What you need, and two commands</h2>
       <p class="narrow">The platform is free. The AI agents it runs are not: they use your own accounts, and a serious build costs real money on them.</p>
       <table class="needs">
         <thead><tr><th>You need</th><th>Why</th><th>Cost</th></tr></thead>
@@ -476,17 +422,10 @@
           <tr><td>OpenAI API key</td><td>Your own key, only for asking questions about your project.</td><td>Pay per use</td></tr>
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <section id="install">
-    <div class="wrap">
-      <div class="kicker">Install</div>
-      <h2>Two commands</h2>
       <pre><span class="c">git clone</span> https://github.com/nomorehappypath/nomorehappypath.git
 <span class="c">cd</span> nomorehappypath &amp;&amp; bash install.sh</pre>
-      <p class="narrow">The installer checks everything above and tells you plainly what’s missing. Then open Mission Control, point it at a project folder, and give your first direction. Everything runs on your machine, and your code never goes to our servers.</p>
-      <div class="cta" style="margin-top:28px"><a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Read the full guide on GitHub</a></div>
+      <p class="narrow">The installer checks everything above and tells you plainly what’s missing. Then open Mission Control, point it at a project folder, and give your first direction.</p>
+      <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Read the full guide on GitHub</a></div>
     </div>
   </section>
 
@@ -494,19 +433,28 @@
     <div class="wrap">
       <div class="kicker">Questions</div>
       <h2>What people ask first</h2>
+      <details><summary>How is this different from other open-source AI dev harnesses?</summary><p>Many harnesses help you run agents, and leave the quality process for you to design. NoMoreHappyPath ships the whole route by default, and it's built for a solo builder who wants to ship commercial software, not demos:</p><ul>
+        <li><b>Agreed before built.</b> The reviewer asks you up to four multiple-choice questions, and you approve a plain-words contract before any code exists.</li>
+        <li><b>Tests that are real.</b> A reviewer from a different AI company writes the tests first; a coverage check makes sure every requirement has one; every test must fail before the work, or it doesn't count.</li>
+        <li><b>A board no agent can edit.</b> The board runs the tests itself and records the real results, so a pass can't be faked.</li>
+        <li><b>Reviews that end.</b> Three bounded rounds, then a retry on a higher model, or an honest “could not finish”. Never an endless loop.</li>
+        <li><b>A control room you can understand.</b> Mission Control shows every step in plain English, and a CTO clears the path so nothing stays stuck.</li>
+        <li><b>Built for real targets.</b> Test on virtual machines of different operating systems, pick the model for each role within your quota, and pause or restart without losing anything.</li>
+        <li><b>Security built in, and enhanced on demand.</b> A security baseline on every app, and an Enhanced security switch per task that adds a threat model, security tests and a controls register.</li>
+        <li><b>You decide.</b> Nothing is done until you review and accept it.</li>
+        <li><b>Proven on real products.</b> A land due-diligence platform, a pre-purchase analysis app and a marketing agency, each used by a client.</li>
+      </ul></details>
       <details><summary>Isn’t AI reviewing AI just theatre?</summary><p>The reviewer isn’t reading a diff and nodding. It writes its own tests, the harness runs them and keeps the output, and the verdict has to match that output. A pass with no recorded execution behind it is refused. It also has no reason to agree: it comes from a different company than the builder.</p></details>
-      <details><summary>Is this a code-review tool?</summary><p>No. It’s a complete delivery system: you give it an idea and a team of agents plans, builds, tests and reviews it inside a governed board, with a local control room to run it. The independent review is one of the safeguards that makes the result trustworthy, not the product itself.</p></details>
       <details><summary>What does it cost to run?</summary><p>The software is free. The agents run on your own subscriptions. A serious build uses real usage. Using a top model for the plan and lighter models for building and review keeps that down.</p></details>
       <details><summary>Why does even a small app take so long?</summary><p>Because the harness builds for release, not for a demo. It agrees the requirements first, has a different AI review each part, tries the failure cases, checks security and quality basics, and finishes with a review that uses the whole app in a real browser. A weather app took 48 minutes and four reviews, and one of them failed. A demo takes five minutes and skips all of that.</p></details>
       <details><summary>Does my code leave my computer?</summary><p>The harness runs on your machine and doesn’t send your code to us. Your agents talk to their own providers, the same as when you use those tools directly.</p></details>
-      <details><summary>Is it really open source?</summary><p>Yes. Apache 2.0: use it, change it, use it commercially.</p></details>
-      <details><summary>Does it guarantee bug-free software?</summary><p>No, and nothing does. It guarantees that what ships was checked by a different AI, with evidence you can read.</p></details>
+      <details><summary>Does it guarantee bug-free software?</summary><p>No, and nothing does. What it guarantees is that nothing ships unchecked: the tests are written before the code and must fail first, the board runs them itself, an independent reviewer from a different AI company runs its own tests on the real product, a final gate runs the full test suite, and you review and accept the result before it ships. Every check leaves evidence you can read.</p></details>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
-      <h2>Stop trusting the demo.</h2>
+      <h2>Be a software company of one.</h2>
       <p class="center narrow">Free, open source, and built under its own rules.</p>
       <div class="cta" style="margin-top:24px"><a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get NoMoreHappyPath</a></div>
     </div>
@@ -520,5 +468,18 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var root=document.getElementById('stepper'); if(!root) return;
+  var tabs=root.querySelectorAll('.ph-tab'), panels=root.querySelectorAll('.ph-panel'), bar=root.querySelector('.ph-bar span');
+  var i=0, timer=null, auto=!window.matchMedia('(prefers-reduced-motion: reduce)').matches, DUR=6500, start=0, raf=null;
+  function show(k){ i=k; tabs.forEach(function(t,j){t.classList.toggle('on',j===k);}); panels.forEach(function(p,j){p.classList.toggle('on',j===k);}); start=performance.now(); }
+  function tick(now){ if(!auto){ bar.style.width='0'; return; } var f=Math.min(1,(now-start)/DUR); bar.style.width=(f*100)+'%'; if(f>=1){ show((i+1)%tabs.length); } raf=requestAnimationFrame(tick); }
+  tabs.forEach(function(t,j){ t.addEventListener('click',function(){ auto=false; show(j); }); });
+  root.addEventListener('mouseenter',function(){ if(auto){ auto=false; } });
+  var seen=false, io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !seen){ seen=true; show(0); raf=requestAnimationFrame(tick); } }); },{threshold:0.35});
+  io.observe(root);
+})();
+</script>
 </body>
 </html>
