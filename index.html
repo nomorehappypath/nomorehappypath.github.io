@@ -242,7 +242,7 @@
       <h2>From a sentence to software you can hand to a customer</h2>
       <div class="flow">
         <div class="flow-d">
-          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1628" loading="lazy" alt="Twenty steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests can fail: the reviewer writes the tests first, the board locks them and checks they fail on the empty project. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
+          <a class="zoom" href="assets/process-infographic.png" target="_blank" rel="noopener"><img src="assets/process-infographic.png" width="1800" height="1628" loading="lazy" alt="Twenty steps in six phases. Frame it: you describe the task, the reviewer frames it with up to four multiple-choice questions, you approve a plain-words contract. Prove the tests can fail: the reviewer writes the tests first, the board locks them and checks they fail on the project as it was before the work. Plan and build: the builder plans, builds to the locked tests and runs every scenario. Prove it works: the board runs the locked tests, the reviewer runs its own challenges and reviews in rounds, the builder repairs. If it gets stuck: one retry by the reviewer or a fresh builder on a higher model, otherwise could not finish. Decide: a final gate, then you accept or not, and accepted work lands."></a>
           <p class="hint">Click the image to open it full size.</p>
         </div>
         <div class="flow-m">
@@ -253,8 +253,8 @@
           <li class="you"><small>You</small><b data-n="3">Approve the contract</b><span>In plain words, with a “what will be tested” list.</span></li>
           <li class="phase"><b>2. Prove the tests can fail</b></li>
           <li class="reviewer"><small>Reviewer</small><b data-n="4">Writes the tests first</b><span>From the contract, before any code exists.</span></li>
-          <li class="board"><small>Board</small><b data-n="5">Locks the tests</b><span>Tamper-proof: nobody can edit them.</span></li>
-          <li class="board"><small>Board</small><b data-n="6">Red proof</b><span>Tests must FAIL on the empty project. A test that passes on nothing is flagged “did not distinguish” and sent back.</span></li>
+          <li class="board"><small>Board</small><b data-n="5">Locks the tests</b><span>Stored with a fingerprint (SHA-256). Any change is recorded.</span></li>
+          <li class="board"><small>Board</small><b data-n="6">Red proof</b><span>Run on the project as it was before the work began. A test that passes there is flagged “did not distinguish” and does not count.</span></li>
           <li class="phase"><b>3. Plan and build</b></li>
           <li class="builder"><small>Builder</small><b data-n="7">Plans the work</b><span>A Scenario Ledger and an evidence contract. Independent parts run in parallel.</span></li>
           <li class="builder"><small>Builder</small><b data-n="8">Builds</b><span>To the locked tests.</span></li>
@@ -280,17 +280,17 @@
       <div class="flow zoomin">
         <div class="kicker">Zoom in on step 6</div>
         <h3>Why every test must fail first</h3>
-        <p class="lead">You don't trust a smoke alarm until you've tested it with smoke. NoMoreHappyPath does the same with every test: before anything is built, the board runs the reviewer's tests on an empty project. A test that can't fail proves nothing.</p>
+        <p class="lead">You don't trust a smoke alarm until you've tested it with smoke. NoMoreHappyPath does the same with every test: before the work counts, the board runs the reviewer's tests on the project as it was before the work. A test that can't fail proves nothing.</p>
         <div class="flow-d">
-          <a class="zoom" href="assets/red-proof.png" target="_blank" rel="noopener"><img src="assets/red-proof.png" width="1800" height="1180" loading="lazy" alt="Two tests compared. A good test, the app shows five days of weather, fails on an empty project, which is correct, then passes after the build, so it is accepted as proof. A useless test, the page exists, passes even on an empty project, so it is marked did not distinguish, sent back, and never counted."></a>
+          <a class="zoom" href="assets/red-proof.png" target="_blank" rel="noopener"><img src="assets/red-proof.png" width="1800" height="1180" loading="lazy" alt="Two tests compared. A good test, the app shows five days of weather, fails before the work, which is correct, then passes after the build, so it is accepted as proof. A useless test, the page exists, passes even before the work, so it is marked did not distinguish and does not count as proof."></a>
         </div>
         <div class="flow-m">
           <ul class="flow-list proof-m">
-            <li class="board"><b>A good test</b><span>“The app shows five days of weather.” Run on an empty project, it fails. That is correct: it can tell “built” from “not built”. After the build it passes, and now the green means something.</span></li>
-            <li style="border-color:#8a93a8"><b>A useless test</b><span>“The page exists.” It passes even on an empty project, so it proves nothing. It is marked “did not distinguish”, sent back to the reviewer, and never counted as proof.</span></li>
+            <li class="board"><b>A good test</b><span>“The app shows five days of weather.” Run before the work, it fails. That is correct: it can tell “built” from “not built”. After the build it passes, and now the green means something.</span></li>
+            <li style="border-color:#8a93a8"><b>A useless test</b><span>“The page exists.” It passes even before anything is built, so it proves nothing. It is flagged “did not distinguish” and does not count as proof.</span></li>
           </ul>
         </div>
-        <p class="fine">It proves a test can fail on an empty project, not that it covers every requirement.</p>
+        <p class="fine">It shows a test can fail before the work, not that it covers every requirement. If a check can't be compared, the board says so.</p>
       </div>
     </div>
   </section>
