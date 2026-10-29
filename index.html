@@ -196,6 +196,10 @@
   @media (prefers-reduced-motion: reduce) { .ph-panel.on { animation: none; } }
   @media (max-width: 820px) { .big21 { flex-direction: column; align-items: flex-start; gap: 6px; } .big21 .num { font-size: 110px; } }
   .steps21 { margin-top: 30px; }
+  .live { margin-top: 40px; }
+  .live h3 { font-size: 26px; margin-bottom: 8px; }
+  .live > p { margin: 0 0 18px; max-width: 46em; }
+  .live img, #platform .shots img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1.5px solid var(--ink-3); }
   .steps21 img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1.5px solid var(--ink-3); }
   details.more { border: 0; padding: 0; margin-top: 26px; }
   details.more summary { display: inline-flex; font-size: 16px; color: var(--amber); }
@@ -315,6 +319,16 @@
             <li class="board"><small>Board</small><b data-n="21">Accepted work lands</b><span>It reaches the project&#x27;s main.</span></li>
         </ol></div>
       </div>
+          <div class="live">
+        <h3>What it looks like in Mission Control</h3>
+        <p>A real task, running: what is happening now, which step it is on, what it has cost so far, and what each agent is doing.</p>
+        <a class="zoom" href="assets/mc-where-we-are.png" target="_blank" rel="noopener"><img src="assets/mc-where-we-are.png" width="1446" height="836" loading="lazy" alt="Mission Control during a real task: the builder is building, step 13, a progress bar, the cost so far, and cards for the builder, the independent reviewer and the CTO."></a>
+        <div class="shots" style="margin-top:16px">
+          <figure><a class="zoom" href="assets/mc-timeline-now.png" target="_blank" rel="noopener"><img src="assets/mc-timeline-now.png" width="1446" height="836" loading="lazy" alt="The task timeline: requirements agreed and plan made are done, building is now, testing and the board's own test run are next."></a><figcaption>Done, now, next: every step in plain words.</figcaption></figure>
+          <figure><a class="zoom" href="assets/mc-timeline-accepted.png" target="_blank" rel="noopener"><img src="assets/mc-timeline-accepted.png" width="1446" height="836" loading="lazy" alt="The rest of the timeline: last retry, final whole-app review, release checks, try-it copy, your review, accepted and in main; then Ask about this project."></a><figcaption>All the way to your review and “Accepted”, then ask anything about the project.</figcaption></figure>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -345,6 +359,10 @@
         <div class="card"><h3>Test where it will run</h3><p>Define virtual machines of different operating systems as test targets. A Windows program is built and tested on a real Windows machine, from your Mac.</p></div>
         <div class="card"><h3>Ask, look back, pause</h3><p>Ask questions about your project, look at its full history, and pause and restart without losing anything.</p></div>
         <div class="card"><h3>Security, enhanced on demand</h3><p>Every app gets a built-in security baseline. Switch on Enhanced security for a task and it adds a threat model, security tests and a controls register, ready for a security assessment or audit.</p></div>
+      </div>
+      <div class="shots" style="margin-top:30px">
+        <figure><a class="zoom" href="assets/mc-settings.png" target="_blank" rel="noopener"><img src="assets/mc-settings.png" width="1440" height="782" loading="lazy" alt="Settings: choose the AI company, model and effort for the builder, the independent reviewer and the CTO; the reviewer is always from a different AI company."></a><figcaption>Settings: pick the AI company, model and effort for each role, once.</figcaption></figure>
+        <figure><a class="zoom" href="assets/mc-start-kinds.png" target="_blank" rel="noopener"><img src="assets/mc-start-kinds.png" width="840" height="615" loading="lazy" alt="Start a Delivery Agent: choose Write code, Analyze code or Write specs, then the provider, model and effort for this launch."></a><figcaption>Choose the kind of work: write code, analyze code, or write specs.</figcaption></figure>
       </div>
     </div>
   </section>
