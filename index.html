@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@600&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5bb3814b-3b40-433f-b803-115da2ab66cd" data-domains="nomorehappypath.com"></script>
 <style>
   :root {
     --ink: #0d1728;
@@ -459,7 +460,7 @@
       <div class="cta" style="margin-top:22px"><a class="btn ghost" href="https://www.linkedin.com/in/gerardrafie/" target="_blank" rel="noopener">Connect on LinkedIn</a></div>
     </div>
   </section>
-  <section class="alt">
+  <section id="questions" class="alt">
     <div class="wrap">
       <div class="kicker">Questions</div>
       <h2>What people ask first</h2>
@@ -509,6 +510,45 @@
   root.addEventListener('mouseenter',function(){ if(auto){ auto=false; } });
   var seen=false, io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !seen){ seen=true; show(0); raf=requestAnimationFrame(tick); } }); },{threshold:0.35});
   io.observe(root);
+})();
+</script>
+<script>
+(function () {
+  function track(name, data) { try { if (window.umami) window.umami.track(name, data); } catch (e) {} }
+  function where(el) {
+    if (el.closest('header')) return 'header';
+    if (el.closest('.hero')) return 'hero';
+    if (el.closest('footer')) return 'footer';
+    if (el.closest('.final')) return 'final';
+    if (el.closest('#install')) return 'install';
+    return 'page';
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf('github.com/nomorehappypath') > -1) track('github-click', { where: where(a) });
+    else if (h.indexOf('NMHP_WHITEPAPER') > -1) track('whitepaper-click');
+    else if (h === '#propdesk-video' || h === '#studio-video') track('proof-card-click', { card: h.slice(1) });
+    else if (h.indexOf('mailto:') === 0) track('mailto-click');
+  });
+  var played = {};
+  document.querySelectorAll('video').forEach(function (v, i) {
+    var src = (v.querySelector('source') || {}).src || ('video-' + i);
+    var name = src.split('/').pop().replace('.mp4', '');
+    v.addEventListener('play', function () { if (!played[name]) { played[name] = 1; track('video-play', { video: name }); } });
+  });
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && !seen[en.target.id]) { seen[en.target.id] = 1; track('section-view', { section: en.target.id }); }
+      });
+    }, { threshold: 0.3 });
+    ['evidence', 'how', 'platform', 'built', 'install', 'builder', 'questions'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) io.observe(el);
+    });
+  }
 })();
 </script>
 </body>
