@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NoMoreHappyPath: be a software company of one</title>
-<meta name="description" content="Others give you an AI developer. NoMoreHappyPath gives you the software company: every department, already hired, and 26 steps from idea to commercial software. You are the CEO. Free and open source.">
+<meta name="description" content="Others give you an AI developer. NoMoreHappyPath gives you the software company: every department, already hired, governance built in, and 26 steps from idea to commercial software. You are the CEO. Free and open source.">
 <link rel="canonical" href="https://nomorehappypath.com/">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NoMoreHappyPath: be a software company of one">
-<meta property="og:description" content="Others give you an AI developer. NoMoreHappyPath gives you the software company: every department, already hired, and 26 steps from idea to commercial software. You are the CEO. Free and open source.">
+<meta property="og:description" content="Others give you an AI developer. NoMoreHappyPath gives you the software company: every department, already hired, governance built in, and 26 steps from idea to commercial software. You are the CEO. Free and open source.">
 <meta property="og:url" content="https://nomorehappypath.com/">
 <meta property="og:image" content="https://nomorehappypath.com/assets/og-1200x630.png?v=4">
 <meta name="twitter:card" content="summary_large_image">
@@ -57,6 +57,11 @@
   .hero { padding: 44px 0 64px; }
   .hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
   .lede { font-size: 19px; margin: 22px 0 30px; max-width: 32em; }
+  .govline { margin: 0 0 30px; padding-left: 16px; border-left: 3px solid var(--amber); max-width: 34em; }
+  .govline b { color: var(--amber); }
+  .gov5 .card { padding: 20px; } .gov5 .card h3 { font-size: 19px; }
+  .gov5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 30px; }
+  @media (max-width: 960px) { .gov5 { grid-template-columns: 1fr; } }
   .cta { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn { display: inline-block; padding: 13px 22px; border-radius: 4px; font-weight: 600; text-decoration: none; font-size: 16px; }
   .btn.primary { background: var(--amber); color: var(--ink); }
@@ -270,6 +275,7 @@
       <div>
         <h1>Others give you an AI developer.<br><em>NoMoreHappyPath gives you the software company.</em></h1>
         <p class="lede">Product, QA, engineering, security, code audit, CTO, release, support and finance. Every department a real software company has, already hired. You are the CEO: you say go ahead, and nothing ships until you accept it.</p>
+        <p class="govline"><b>Governance built in, not bolted on.</b> Others govern what an AI agent can access. NoMoreHappyPath governs what it delivers: requirements you approve, tests the builder can’t change, independent review, evidence you can read, and nothing is done until you say so.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/nomorehappypath/nomorehappypath">Get it on GitHub</a>
           <a class="btn ghost" href="#how">See how it works</a>
@@ -377,7 +383,21 @@
   </section>
 
 
-  <section id="platform" class="alt">
+  <section id="governance" class="alt">
+    <div class="wrap">
+      <div class="kicker">Governance</div>
+      <h2>AI governance you can run</h2>
+      <div class="gov5">
+        <div class="card"><h3>Rules</h3><p>Agents can’t edit the board or the locked tests.</p></div>
+        <div class="card"><h3>Separation of duties</h3><p>The reviewer is never from the builder’s company.</p></div>
+        <div class="card"><h3>Evidence</h3><p>Test and review results are recorded, and anything not tested for real says so.</p></div>
+        <div class="card"><h3>Oversight</h3><p>A CTO watches the process.</p></div>
+        <div class="card"><h3>Authority</h3><p>Only you accept the work.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platform">
     <div class="wrap">
       <div class="kicker">The platform</div>
       <h2>Everything a software company needs, on your machine</h2>
@@ -397,7 +417,7 @@
     </div>
   </section>
 
-  <section id="built">
+  <section id="built" class="alt">
     <div class="wrap">
       <div class="kicker">Proof</div>
       <h2>Real products, built with it</h2>
